@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Real-time Clock</title>
+  <style>
+    #clock {
+      font-size: 48px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div id="clock"></div>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+    const socket = io();
+
+    socket.on('time', (time) => {
+      document.getElementById('clock').innerHTML = time;
+    });
+  </script>
+</body>
+</html>
